@@ -1,0 +1,24 @@
+{
+  "name": "7_projeto_almir",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nilsonmazurchi/ProjetoAlmir.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nilsonmazurchi/ProjetoAlmir/issues"
+  },
+  "homepage": "https://github.com/nilsonmazurchi/ProjetoAlmir#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
