@@ -1,18 +1,12 @@
 
-Request: POST /alunos/novo?nome=Ana%20Flavia&matricula=14589&media=7.8 at Sat Apr 15 2023 09:37:21 GMT-0300, IP: ::1, User Agent: PostmanRuntime/7.32.2
+Request: POST /alunos/novo?nome=Fernanda%20Adrane&matricula=14789569&media=8.8 at Sun Apr 16 2023 08:55:18 GMT-0300, IP: ::1, User Agent: PostmanRuntime/7.32.2
 Response Body:
 {
 	"message": "Usuário adicionado"
 }
-Response: 201 3.359 ms 
+Response: 201 3.241 ms 
 
-Request: POST /alunos/deletar/10 at Sat Apr 15 2023 09:37:31 GMT-0300, IP: ::1, User Agent: PostmanRuntime/7.32.2
-Response: 404 3.221 ms 
-
-Request: POST /alunos/atualizar/10?nome=Waldemar&media=5.5&matricula=115 at Sat Apr 15 2023 09:37:52 GMT-0300, IP: ::1, User Agent: PostmanRuntime/7.32.2
-Response: 404 0.936 ms 
-
-Request: PUT /alunos/10?nome=Nilson%20Mazurchi&media=7.6&matricula=089 at Sat Apr 15 2023 09:37:56 GMT-0300, IP: ::1, User Agent: PostmanRuntime/7.32.2
+Request: GET /alunos at Sun Apr 16 2023 08:55:29 GMT-0300, IP: ::1, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
 Response Body:
 [
 	{
@@ -66,27 +60,28 @@ Response Body:
 		"media": "7.8"
 	},
 	{
-		"nome": "Nilson Mazurchi",
-		"matricula": 89,
-		"media": 7.6
+		"nome": "Fernanda Adrane",
+		"matricula": "14789569",
+		"media": "8.8"
 	}
 ]
-Response: 200 3.352 ms 
+Response: 200 3.429 ms 
 
-Request: DELETE /alunos/10 at Sat Apr 15 2023 09:38:13 GMT-0300, IP: ::1, User Agent: PostmanRuntime/7.32.2
+Request: DELETE /alunos/10 at Sun Apr 16 2023 08:57:53 GMT-0300, IP: ::1, User Agent: PostmanRuntime/7.32.2
 Response Body:
 {
 	"message": "Aluno removido com sucesso"
 }
-Response: 200 3.341 ms 
+Response: 200 3.141 ms 
 
-Request: GET / at Sat Apr 15 2023 09:38:25 GMT-0300, IP: ::1, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
-Response: 404 5.517 ms 
+Request: POST /alunos/novo?nome=Fernanda%20Adrane&matricula=14789569&media=8.8 at Sun Apr 16 2023 08:58:50 GMT-0300, IP: ::1, User Agent: PostmanRuntime/7.32.2
+Response Body:
+{
+	"message": "Usuário adicionado"
+}
+Response: 201 4.697 ms 
 
-Request: GET / at Sat Apr 15 2023 09:38:26 GMT-0300, IP: ::1, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
-Response: 404 1.729 ms 
-
-Request: GET /alunos at Sat Apr 15 2023 09:38:41 GMT-0300, IP: ::1, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+Request: PUT /alunos/10?nome=Fernanda%20Cristina&matricula=00012568&media=6.5 at Sun Apr 16 2023 09:02:08 GMT-0300, IP: ::1, User Agent: PostmanRuntime/7.32.2
 Response Body:
 [
 	{
@@ -138,13 +133,72 @@ Response Body:
 		"nome": "Ana Flavia",
 		"matricula": "14589",
 		"media": "7.8"
+	},
+	{
+		"nome": "Fernanda Cristina",
+		"matricula": 12568,
+		"media": 6.5
 	}
 ]
-Response: 200 11.088 ms 
+Response: 200 5.028 ms 
 
-Request: DELETE /alunos/10 at Sat Apr 15 2023 09:38:51 GMT-0300, IP: ::1, User Agent: PostmanRuntime/7.32.2
+Request: GET /alunos at Sun Apr 16 2023 09:02:17 GMT-0300, IP: ::1, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
 Response Body:
-{
-	"error": "O index não existe"
-}
-Response: 404 0.858 ms 
+[
+	{
+		"nome": "José Almir",
+		"matrícula": 15897968916,
+		"media": 7
+	},
+	{
+		"nome": "Fernando Fernandes",
+		"matrícula": 15897968910,
+		"media": 4.5
+	},
+	{
+		"nome": "José Carlos",
+		"matrícula": 15897968917,
+		"media": 6.5
+	},
+	{
+		"nome": "Cristiano Pereira",
+		"matrícula": 15897968911,
+		"media": 5.5
+	},
+	{
+		"nome": "João Cardozo",
+		"matrícula": 15897968912,
+		"media": 8.5
+	},
+	{
+		"nome": "João Pedro Lima",
+		"matrícula": 15897968913,
+		"media": 2.5
+	},
+	{
+		"nome": "Renata Adriana Silva",
+		"matrícula": 15897968914,
+		"media": 3.5
+	},
+	{
+		"nome": "Aline Cardoso",
+		"matrícula": 15897968915,
+		"media": 10
+	},
+	{
+		"nome": "Sofia Marques",
+		"matrícula": 15897968918,
+		"media": 6.2
+	},
+	{
+		"nome": "Ana Flavia",
+		"matricula": "14589",
+		"media": "7.8"
+	},
+	{
+		"nome": "Fernanda Cristina",
+		"matricula": 12568,
+		"media": 6.5
+	}
+]
+Response: 200 4.448 ms 

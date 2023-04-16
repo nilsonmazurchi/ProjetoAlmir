@@ -1,14 +1,11 @@
 const express = require("express");
-const {alunos, buscaNome, buscaMedia, deletarAluno, atualizarDadosAluno} = require("./alunos");
+const {alunos, buscaNome, buscaMedia, deletarAluno, atualizarDadosAluno, salvarArquivoJson} = require("./alunos");
 const bodyParser = require('body-parser');
 const fs = require("fs");
 const morganBody = require('morgan-Body');
 const path = require('path');
 const morgan = require('morgan')
 //const moment = require("moment/moment");
-
-// const server = http.createServer(app)
-
 const app = express();
 app.use(bodyParser.json());
 
@@ -16,7 +13,6 @@ app.use(bodyParser.json());
 const log = fs.createWriteStream(
     path.join(__dirname, "./logs", "express.log"), { flags: "a" }
 );
-  
 morganBody(app, {
     noColors: true,
     stream: log,
@@ -30,26 +26,19 @@ app.get("/alunos", morgan('combined'), (req, res) => {
     if (req.query.nome) {
         listaAlunos = buscaNome(listaAlunos, req.query.nome);
     }
-
     if (req.query.media) {
         listaAlunos = buscaMedia(listaAlunos, parseFloat(req.query.media));
     }
-
     res.json(listaAlunos);
     })
 
 // POST para novo aluno
-
 app.post("/alunos/novo", morgan('tiny'), (req, res) => {
     const { nome, matricula, media } = req.query;
-
     const novoAluno = { nome: nome,  matricula: matricula, media: media };
     alunos.push(novoAluno);
-    fs.writeFile("alunos.json", JSON.stringify(alunos), (err) => {
-        if (err) throw err;
-    })
+    salvarArquivoJson();
     
-
     if (novoAluno) {
         res.status(201).json({ message: "Usuário adicionado" });
     } else {
@@ -75,19 +64,15 @@ app.post("/alunos/novo", morgan('tiny'), (req, res) => {
 
 app.delete("/alunos/:index", morgan(':url :method'), (req, res) => {
     const index = parseInt(req.params.index);
-   
+    
     if(alunos[index]) {
         deletarAluno(index);
-        fs.writeFile("alunos.json", JSON.stringify(alunos), (err) => {
-            if (err) throw err;
-        })
         res.json({ message: "Aluno removido com sucesso" });
     } else  {
         res.status(404).json({ error: "O index não existe" });
     }
+    salvarArquivoJson();
 });
-
-
 
 // Atualizar a lista de alunos
 
@@ -107,8 +92,6 @@ app.delete("/alunos/:index", morgan(':url :method'), (req, res) => {
 //     res.json(alunos);
 // })
 
-
-
 app.put("/alunos/:index", (req, res) => {
     const index = (req.params.index);
     const { nome, matricula, media } = req.query;
@@ -118,14 +101,10 @@ app.put("/alunos/:index", (req, res) => {
         return;
     }else {
         atualizarDadosAluno(index, nome, matricula, media);
-        fs.writeFile("alunos.json", JSON.stringify(alunos), (err) => {
-            if (err) throw err;
-        })
     }
+    salvarArquivoJson()
     res.json(alunos);
 })
-
-
 
 // Escuta
 app.listen(3000, () => {

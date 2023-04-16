@@ -1,4 +1,5 @@
 const alunos = require("./alunos.json")
+const fs = require("fs");
 
 // const alunos = [
 //     { nome: "José Almir", matrícula: 15897968916, media: 7.0 },
@@ -50,14 +51,16 @@ function atualizarDadosAluno(index, nome, matricula, media) {
     alunos[index].media = Number(media);
     alunos[index].matricula = Number(matricula);
     return nome, media, matricula
-  }
-  
-  
+  }}
 
+function salvarArquivoJson(){
+  fs.writeFile("alunos.json", JSON.stringify(alunos), (err) => {
+    if (err) throw err;
+})
 }
 // // Exportação do array e das funções 
 
-  module.exports = {alunos, buscaNome, buscaMedia, deletarAluno, atualizarDadosAluno}
+  module.exports = {alunos, buscaNome, buscaMedia, deletarAluno, atualizarDadosAluno, salvarArquivoJson}
   
 
   
